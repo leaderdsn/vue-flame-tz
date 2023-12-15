@@ -7,30 +7,39 @@ import TheHome from '@/views/TheHome.vue'
 const routes = [
 	{
 		path: '/',
-		name: 'Главная',
+		name: 'Home',
 		component: TheHome,
+		meta: {
+			menu: true
+		}
 	},
 	{
 		path: '/peoples',
-		name: 'Люди',
+		name: 'Peoples',
 		component: ThePeoples,
-		children: [
-			{
-				path: '/peoples/:id',
-				component: ThePeople,
-			},
-		]
+		meta: {
+			menu: true
+		},
+	},
+	{
+		path: '/people/:id',
+		name: 'People',
+		component: ThePeople,
 	},
 	{
 		path: '/favorites',
-		name: 'Избранное',
+		name: 'Favorites',
 		component: TheFavorites,
+		meta: {
+			menu: true
+		}
 	},
 ]
 
 const router = createRouter({
 	history: createWebHistory(),
 	routes,
+	linkActiveClass: 'active',
 })
 
 export default router
